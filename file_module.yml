@@ -1,0 +1,10 @@
+---
+  - name: playbook
+    hosts: all
+    become: yes
+
+    tasks:
+      - name: creating a file
+        file:
+          path: /home/ansadmin/DevOps.txt
+          state: touch

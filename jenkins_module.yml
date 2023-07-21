@@ -1,0 +1,28 @@
+---
+  - name: register module
+    hosts: all
+    become: yes
+    tasks:
+      - name: installing the httpd
+        yum:
+          name: httpd
+          state: present
+
+      - name: stawrting the service
+        service:
+          name: httpd
+          state: started
+
+      - name: storing the output
+        command: systemctl status httpd
+        register: httpd_status
+
+
+      - name: storing the output
+        debug:
+          var: httpd_status
+
+      - name: filter output
+        debug:
+          var: httpd_status.stdout_lines      
+

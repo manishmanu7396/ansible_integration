@@ -1,0 +1,18 @@
+---
+  - name: another playbook
+    hosts: all
+    become: yes
+
+    tasks:
+      - name: "installing multiple packages"
+        yum:
+          name: ['git', 'tree']
+          state: present
+
+      - name: "git status"
+        command: git status
+        register: data
+
+      - name: "output"
+        debug:
+          var: data

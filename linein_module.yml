@@ -1,0 +1,11 @@
+---
+  - name: playbook
+    hosts: all
+    become: yes
+
+    tasks:
+      - name: "LineInFile Module"
+        lineinfile:
+          path: /home/ansadmin/cricket.txt
+          regexp: '^(.*)cricket is my favourite game(.*)$'
+          line: 'cricket is my alltime favouite game'

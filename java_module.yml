@@ -1,0 +1,18 @@
+---
+  - name: playbook
+    hosts: all
+    become: yes
+
+    tasks:
+      - name: "installing java"
+        yum:
+          name: maven
+          state: present
+
+      - name: "checking the status"
+        command: mvn --version
+        register: maven_status
+
+      - name: "printing the output"
+        debug:
+          var: maven_status

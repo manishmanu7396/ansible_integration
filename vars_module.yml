@@ -1,0 +1,18 @@
+---
+  - name: playbook
+    hosts: all
+    become: yes
+    vars:
+      my_content: "this is a sample playbook"
+
+    tasks:
+      - name: "creating a file"
+        shell: |
+          pwd
+          cd /home/ansadmin
+          touch kohli.txt
+
+        name: "copying the content"
+        copy:
+          dest: /home/ansadmin/kohli.txt
+          content: "{{ my_content }}"  

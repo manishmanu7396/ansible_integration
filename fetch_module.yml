@@ -1,0 +1,10 @@
+---
+  - name: playbook
+    hosts: all
+    become: yes
+    tasks:
+      - name: "getting file from remote"
+        fetch:
+          src: /home/ansadmin/dell.txt
+          dest: /home/ansadmin/manish/
+          flat: yes

@@ -1,0 +1,11 @@
+---
+  - name: playbook
+    hosts: all
+    become: yes
+
+    tasks:
+      - name: "LineInFilemodule"
+        lineinfile:
+          path: /home/ansadmin/cricket.txt
+          regex: '^Dhoni='
+          line: Dhoni=captain cool

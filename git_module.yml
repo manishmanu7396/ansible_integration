@@ -1,0 +1,15 @@
+---
+  - name: git playbook
+    hosts: all
+    become: yes
+    vars:
+      token: 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
+      username: manishmanu7396
+      repo_name: citibank
+
+    tasks:
+      - name: "cloning code from the repo"
+        git:
+          repo: https://{{token}}@github.com/{{username}}/{{repo_name}}.git
+          dest: /home/ansadmin/manish/
+
